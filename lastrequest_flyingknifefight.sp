@@ -45,6 +45,7 @@ public void Event_PlayerSpawn(Event event, const char[] name, bool dontBroadcast
 		
 	SDKUnhook(client, SDKHook_OnTakeDamage, OnTakeDamage);
 	SetEntityMoveType(client, MOVETYPE_WALK);
+	SetEntProp(client, Prop_Data, "m_MoveCollide", 0);
 }
 
 public Action:OnWeaponCanUse(client, weapon)
