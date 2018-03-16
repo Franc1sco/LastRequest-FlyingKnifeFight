@@ -30,7 +30,7 @@ public void OnPluginStart()
 {
 	g_iToolsVelocity = FindSendPropInfo("CBasePlayer", "m_vecVelocity[0]");	
 	
-	HookEvent("player_spawn", Event_PlayerSpawn, EventHookMode_Post);
+	HookEvent("player_spawn", Event_PlayerSpawn, EventHookMode_Pre);
 }
 
 public void Event_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
