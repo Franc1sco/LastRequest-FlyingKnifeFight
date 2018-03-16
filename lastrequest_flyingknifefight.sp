@@ -10,10 +10,10 @@
 public Plugin myinfo = 
 {
 	name = "LR - Fliying knife fight", 
-	author = "KeidaS", 
+	author = "-", 
 	description = "Flying knife fight for last request plugin", 
 	version = "1.0", 
-	url = "www.hermandadfenix.es"
+	url = "-"
 };
 
 bool canFly[MAXPLAYERS];
@@ -44,7 +44,7 @@ public Action:OnPlayerRunCmd(client, &buttons, &impulse, Float:vel[3], Float:ang
 
 public Action fly(int client, int args) {
 	if (lrActive && IsPlayerAlive(client) && canFly[client]) {
-		SetEntityMoveType(client, MOVETYPE_FLY);
+		SetEntityMoveType(client, MOVETYPE_FLYGRAVITY);
 		SetEntityMoveCollide(client, 1);
 		ChangeEdictState(client);
 	}
