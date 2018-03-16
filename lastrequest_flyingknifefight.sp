@@ -68,6 +68,7 @@ public Action:OnPlayerRunCmd(client, &buttons, &impulse, Float:vel[3], Float:ang
 	{
 		
 		SetEntityMoveType(client, MOVETYPE_FLY);
+		SetEntProp(client, Prop_Data, "m_MoveCollide", 1);
 		if (buttons & IN_JUMP) 
 		{
 			//PrintToChat(client, "impulso");
@@ -115,6 +116,9 @@ public LrStart(Handle:array, LrNumber) {
 		SetEntityHealth(guard, 100);
 		SetEntityMoveType(guard, MOVETYPE_FLY);
 		
+		SetEntProp(prisoner, Prop_Data, "m_MoveCollide", 1);
+		SetEntProp(guard, Prop_Data, "m_MoveCollide", 1);
+		
 		GetClientName(prisoner, namePrisoner, sizeof(namePrisoner));
 		GetClientName(guard, nameGuard, sizeof(nameGuard));
 		
@@ -140,6 +144,9 @@ public LrStop(type, Prisoner, Guard) {
 		CreateTimer(4.0, Timer_NoFall, GetClientUserId(guard), TIMER_FLAG_NO_MAPCHANGE);
 		
 		SetEntityMoveType(guard, MOVETYPE_WALK);
+		
+		SetEntProp(prisoner, Prop_Data, "m_MoveCollide", 0);
+		SetEntProp(prisoner, Prop_Data, "m_MoveCollide", 0);
 		
 		lrActive = false;
 	}
